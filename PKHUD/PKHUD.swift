@@ -31,6 +31,10 @@ public class PKHUD: NSObject {
         window.frameView.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleTopMargin, .FlexibleBottomMargin]
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     internal func willEnterForeground() {
         self.startAnimatingContentView()
     }
